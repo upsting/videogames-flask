@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ game.name }} - Details</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="page-shell detail-shell">
+        <a class="back-link" href="{{ url_for('index') }}">Terug naar overzicht</a>
+
+        <article class="detail-card">
+            <div class="card-top">
+                <span class="chip">{{ game.category }}</span>
+                <span class="year">{{ game.release_year }}</span>
+            </div>
+
+            <h1>{{ game.name }}</h1>
+
+            <ul class="meta-list detail-list">
+                <li><strong>Genre</strong><span>{{ game.genre }}</span></li>
+                <li><strong>Platform</strong><span>{{ game.platform }}</span></li>
+                <li><strong>Jaar</strong><span>{{ game.release_year }}</span></li>
+                <li><strong>Categorie</strong><span>{{ game.category }}</span></li>
+            </ul>
+
+            <div class="detail-actions">
+                <a href="https://www.google.com/search?q={{ game.name | urlencode }}+game" target="_blank" rel="noopener noreferrer">Zoek op Google</a>
+                <a href="https://store.steampowered.com/search/?term={{ game.name | urlencode }}" target="_blank" rel="noopener noreferrer">Zoek op Steam</a>
+                <a href="https://www.metacritic.com/search/{{ game.name | urlencode }}/" target="_blank" rel="noopener noreferrer">Zoek op Metacritic</a>
+            </div>
+        </article>
+
+    </main>
+</body>
+</html>

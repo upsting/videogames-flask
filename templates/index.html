@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videogames Overzicht</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="page-shell">
+        <section class="hero">
+            <p class="eyebrow">Gaming radar</p>
+            <h1>Videogames Overzicht</h1>
+            <p class="intro">
+                Een snel overzicht van populaire titels met genre, platform en categorie.
+                Klik op een game voor details en extra bronnen.
+            </p>
+        </section>
+
+        <section class="games-grid">
+            {% for game in games %}
+            <article class="game-card">
+                <div class="card-top">
+                    <span class="chip">{{ game.category }}</span>
+                    <span class="year">{{ game.release_year }}</span>
+                </div>
+                <h2>
+                    <a href="{{ url_for('game_detail', game_id=game.id) }}">{{ game.name }}</a>
+                </h2>
+                <ul class="meta-list">
+                    <li><strong>Genre</strong><span>{{ game.genre }}</span></li>
+                    <li><strong>Platform</strong><span>{{ game.platform }}</span></li>
+                </ul>
+                <a class="detail-link" href="{{ url_for('game_detail', game_id=game.id) }}">Bekijk details</a>
+            </article>
+            {% endfor %}
+        </section>
+
+    </main>
+</body>
+</html>

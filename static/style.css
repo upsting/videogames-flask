@@ -1,0 +1,231 @@
+/*
+Bronvermelding:
+- Typografie via Google Fonts (Bebas Neue, Space Grotesk): https://fonts.google.com/
+- Kleur- en layoutontwerp is projectspecifiek uitgewerkt voor deze opdracht.
+*/
+
+:root {
+    --bg-1: #fdf8ef;
+    --bg-2: #f8e6cc;
+    --ink: #102a43;
+    --ink-soft: #334e68;
+    --accent: #ef476f;
+    --accent-2: #ff9f1c;
+    --card: #ffffff;
+    --line: #d9c7a7;
+    --shadow: 0 12px 28px rgba(16, 42, 67, 0.14);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: var(--ink);
+    font-family: "Space Grotesk", "Segoe UI", sans-serif;
+    background:
+        radial-gradient(circle at 15% 10%, #ffe8be 0%, transparent 40%),
+        radial-gradient(circle at 85% 20%, #ffd0be 0%, transparent 38%),
+        linear-gradient(130deg, var(--bg-1), var(--bg-2));
+    min-height: 100vh;
+}
+
+.page-shell {
+    width: min(1100px, 92vw);
+    margin: 0 auto;
+    padding: 44px 0 52px;
+}
+
+.hero {
+    margin-bottom: 28px;
+    animation: fade-slide 520ms ease-out;
+}
+
+.eyebrow {
+    margin: 0;
+    color: var(--accent);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+h1 {
+    margin: 10px 0 14px;
+    font-family: "Bebas Neue", Impact, sans-serif;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    letter-spacing: 0.03em;
+    line-height: 0.95;
+}
+
+.intro {
+    margin: 0;
+    color: var(--ink-soft);
+    max-width: 70ch;
+    font-size: 1.05rem;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px;
+}
+
+.game-card,
+.detail-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+}
+
+.game-card {
+    padding: 18px 18px 16px;
+    animation: fade-slide 550ms ease-out;
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.chip {
+    background: #ffe6ee;
+    color: #9a2a44;
+    border: 1px solid #ffc2d1;
+    border-radius: 999px;
+    padding: 4px 10px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.year {
+    color: var(--ink-soft);
+    font-weight: 700;
+}
+
+h2 {
+    margin: 0 0 14px;
+    font-size: 1.35rem;
+    line-height: 1.1;
+}
+
+h2 a {
+    color: var(--ink);
+    text-decoration: none;
+}
+
+h2 a:hover {
+    color: var(--accent);
+}
+
+.meta-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+}
+
+.meta-list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    border-bottom: 1px dashed #eadbc2;
+    padding-bottom: 7px;
+    color: var(--ink-soft);
+}
+
+.meta-list strong {
+    color: var(--ink);
+}
+
+.detail-link,
+.detail-actions a,
+.back-link {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 10px;
+    transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+.detail-link {
+    margin-top: 14px;
+    padding: 10px 12px;
+    background: var(--accent-2);
+    color: #2f1e07;
+}
+
+.detail-link:hover,
+.detail-actions a:hover,
+.back-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(16, 42, 67, 0.18);
+}
+
+.detail-shell {
+    width: min(850px, 92vw);
+}
+
+.back-link {
+    margin-bottom: 16px;
+    padding: 10px 14px;
+    border: 1px solid var(--line);
+    background: #fff8ee;
+    color: var(--ink);
+}
+
+.detail-card {
+    padding: 24px;
+}
+
+.detail-list {
+    margin-top: 10px;
+}
+
+.detail-actions {
+    margin-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.detail-actions a {
+    padding: 10px 12px;
+    border: 1px solid #ffd3a0;
+    background: #fff3df;
+    color: var(--ink);
+}
+
+@keyframes fade-slide {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 680px) {
+    .page-shell {
+        padding-top: 28px;
+    }
+
+    .detail-card {
+        padding: 18px;
+    }
+
+    .meta-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+    }
+}
